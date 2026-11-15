@@ -1,0 +1,51 @@
+# Conjunto de avaliação sobre o vault sintético de demonstração (eval/vault/).
+# Cada `esperadas` lista caminhos relativos ao vault que precisam aparecer no top-5.
+# Decisão Q5: as 10 perguntas reais vivem fora do repositório; este conjunto é o público.
+
+- pergunta: Quais projetos usam Raspberry Pi?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/03Hard/🔵 P90 - Estufa Automatizada.md
+
+- pergunta: Que projeto rega as plantas automaticamente?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/03Hard/🔵 P90 - Estufa Automatizada.md
+
+- pergunta: Onde anotei o plano do encurtador de URLs?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/02Medium/🟡 P91 - Encurtador de URLs.md
+
+- pergunta: Qual projeto usa fila de eventos para contar cliques?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/02Medium/🟡 P91 - Encurtador de URLs.md
+
+- pergunta: Que projeto roda Kubernetes em casa?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/04Extreme/🔵 P93 - Cluster Kubernetes Caseiro.md
+
+- pergunta: Qual projeto implementa um compilador do zero?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/04Extreme/🟡 P94 - Compilador de Brinquedo.md
+
+- pergunta: Onde acompanho meus gastos mensais por categoria?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/03Hard/🔵 P95 - Dashboard de Finanças.md
+
+- pergunta: Que projeto treina um bot para jogar xadrez?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/03Hard/🟡 P96 - Bot de Xadrez.md
+
+- pergunta: Qual projeto varre as portas da rede local?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/02Medium/🔵 P97 - Scanner de Rede.md
+
+- pergunta: Onde está o gerador de receitas a partir de sobras?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/02Medium/🟡 P98 - Gerador de Receitas.md
+
+- pergunta: Qual é o meu plano de treino de corrida?
+  esperadas:
+    - 05 - PARA Method/06 - Áreas/🔵 Treino de Corrida.md
+
+- pergunta: Que projeto rastreia hábitos pela linha de comando?
+  esperadas:
+    - 05 - PARA Method/05 - Projetos/02Medium/🔵 P92 - Rastreador de Hábitos.md

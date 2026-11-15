@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+.env
+config/cerebro.toml
+
+# Índices e caches derivados do vault (contêm trechos das notas)
+.cache/
+data/
+eval/resultados/*.json
+!eval/resultados/.gitkeep
+
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,21 @@
+# Copie para config/cerebro.toml (ignorado pelo Git).
+
+vault_path = "D:/MeuVault"
+exclude_globs = [".obsidian/**", ".trash/**", "01 - Pessoal/01.1 - Diary/**"]
+
+[models]
+embedding = "BAAI/bge-m3"
+reranker = "BAAI/bge-reranker-v2-m3"
+generator = "qwen3:8b"
+
+[services]
+qdrant_url = "http://localhost:6333"
+ollama_url = "http://localhost:11434"
+collection = "vault"
+
+[retrieval]
+candidates_per_retriever = 50
+rrf_k = 60
+rerank_top = 30
+final_top = 8
+max_chunk_tokens = 800
