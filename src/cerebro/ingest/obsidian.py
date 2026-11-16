@@ -59,4 +59,7 @@ def iter_vault_documents(vault_path: Path, exclude_globs: Sequence[str]) -> Iter
 
 def changed_sources(current: dict[str, str], previous: dict[str, str]) -> tuple[set[str], set[str], set[str]]:
     """Compara ``source_id → hash`` e devolve (novas, alteradas, removidas)."""
-    raise NotImplementedError("Fase 1")
+    new = set(current) - set(previous)
+    removed = set(previous) - set(current)
+    changed = {source_id for source_id in current.keys() & previous.keys() if current[source_id] != previous[source_id]}
+    return new, changed, removed

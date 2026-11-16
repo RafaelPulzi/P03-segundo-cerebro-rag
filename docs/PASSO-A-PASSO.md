@@ -21,8 +21,8 @@ git add . ; git commit -m "chore: esqueleto do pipeline RAG com avaliação"
 
 - [x] `ingest/obsidian.py`: varre o vault, lê frontmatter, calcula hash, respeita exclusões (RF-01, RF-03).
 - [x] `chunk/notes.py`: por heading com contexto (RF-02, cenário C1).
-- [ ] Índice de estado (`.cache/estado.json`: hash por nota) para a ingestão incremental.
-- [ ] `cerebro ingest` mostrando quantas notas novas, alteradas e removidas.
+- [x] Índice de estado (`.cache/estado.json`: hash por nota) para a ingestão incremental.
+- [x] `cerebro ingest` mostrando quantas notas novas, alteradas e removidas.
 
 **Pronto quando:** testes da Fase 1 verdes; ingestão real em menos de 5 min.
 
