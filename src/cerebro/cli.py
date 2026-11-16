@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import time
 from typing import Annotated
 
 import typer
@@ -17,7 +18,16 @@ def _pending(phase: int, what: str) -> typer.Exit:
 @app.command()
 def ingest() -> None:
     """Indexa o vault de forma incremental: só notas novas, alteradas ou removidas."""
-    raise _pending(1, "ingestão do vault")
+    from cerebro.ingest.pipeline import ingest_vault
+    from cerebro.settings import Settings
+
+    inicio = time.perf_counter()
+    summary = ingest_vault(Settings())
+    duracao = time.perf_counter() - inicio
+    typer.echo(
+        f"{len(summary.new)} nova(s), {len(summary.changed)} alterada(s), "
+        f"{len(summary.removed)} removida(s) — {summary.chunks} chunk(s) reprocessado(s) em {duracao:.1f}s."
+    )
 
 
 @app.command()

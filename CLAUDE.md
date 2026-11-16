@@ -2,7 +2,7 @@
 
 ## Ordem de leitura
 
-1. `SPEC.md` · 2. `docs/ARQUITETURA.md` · 3. `docs/PASSO-A-PASSO.md` — **fase atual: 0**.
+1. `SPEC.md` · 2. `docs/ARQUITETURA.md` · 3. `docs/PASSO-A-PASSO.md` — **fase atual: 2**.
 
 ## Regras de trabalho
 

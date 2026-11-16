@@ -49,6 +49,8 @@ P03-segundo-cerebro-rag/
 │       ├── ingest/
 │       │   ├── __init__.py
 │       │   ├── obsidian.py
+│       │   ├── pipeline.py
+│       │   ├── state.py
 │       │   ├── pdf.py
 │       │   ├── web.py
 │       │   └── youtube.py
@@ -81,6 +83,8 @@ P03-segundo-cerebro-rag/
 │   │   ├── test_eval_set.py
 │   │   ├── test_fusion.py
 │   │   ├── test_models.py
+│   │   ├── test_cli_ingest.py
+│   │   ├── test_ingest_pipeline.py
 │   │   └── test_obsidian_ingest.py
 │   ├── __init__.py
 │   └── conftest.py
@@ -214,6 +218,8 @@ Uma fonte por arquivo; cada uma devolve Document. Ninguém fora daqui sabe de on
 |---|---|
 | `__init__.py` | Marca o subpacote de ingestão. |
 | `obsidian.py` | Fonte do vault: varre os .md respeitando exclusões, lê frontmatter e calcula o hash de conteúdo para a ingestão incremental (RF-01, RF-03). Fase 1. |
+| `pipeline.py` | Orquestra a ingestão incremental: difere o vault atual contra o estado anterior com `changed_sources`, reprocessa só novas e alteradas e regrava o estado (RF-01, cenário C4). Fase 1. |
+| `state.py` | Índice de estado da ingestão: `source_id → hash` persistido em `.cache/estado.json`. Persistência fora do núcleo puro. Fase 1. |
 | `pdf.py` | Fonte de PDF com texto por página, tabela como Markdown e OCR para página escaneada (RF-08). Fase 4. |
 | `web.py` | Fonte de página web: baixa e limpa com trafilatura (absorve o Web Scraper). Fase 4+. |
 | `youtube.py` | Fonte de vídeo do YouTube: transcrição com carimbo de tempo (RF-09). Fase 5. |
@@ -270,6 +276,8 @@ Testes sem serviço externo.
 | `test_eval_set.py` | O conjunto de avaliação é válido: toda pergunta tem ao menos uma nota esperada e nenhuma pergunta se repete. Roda desde a Fase 0. |
 | `test_fusion.py` | Especificação da fusão RRF: posição, não score; ausência numa lista; desempate estável (RF-06). Fase 3. |
 | `test_models.py` | Contratos do pipeline: imutabilidade e texto de embedding com o contexto prefixado. Roda desde a Fase 0. |
+| `test_cli_ingest.py` | O comando `cerebro ingest` imprime o resumo de novas/alteradas/removidas e a segunda rodada reporta zero mudanças. Fase 1. |
+| `test_ingest_pipeline.py` | Ingestão incremental de ponta a ponta em vault temporário: round-trip do estado, segunda rodada sem mudanças, nota editada reprocessada sozinha e nota apagada fora do estado (cenário C4). Fase 1. |
 | `test_obsidian_ingest.py` | Especificação da ingestão do vault: frontmatter, exclusão do diário, título sem emoji e detecção de mudança (RF-01, RF-03). Fase 1. |
 
 ### Outras pastas
